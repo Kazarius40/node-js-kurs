@@ -13,7 +13,7 @@
 // sayHello();
 
 // Path
-// const path = require('path');
+const path = require('path');
 //
 // const joinedPath = path.join(__dirname, 'test', 'helper.js');
 // console.log(joinedPath);
@@ -32,3 +32,11 @@
 
 // FS
 const fs = require('fs');
+fs.readFile(path.join(__dirname, 'test', 'text.txt'),{encoding: 'utf-8'}, (err, data) => {
+    if(err) throw new Error;
+    console.log(data);
+})
+
+fs.writeFile(path.join(__dirname, 'test', 'text2.txt'), 'Hello World!',  ()=> {
+    if(err) throw new Error;
+});
