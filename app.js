@@ -13,7 +13,11 @@ const start = async () => {
     try {
         for await (const line of rl) {
             const email = line.split(/\s+/)[1];
-            const domain = email.split('@')[1];
+            const splitEmail = email.split('@');
+            if (splitEmail.length !== 2) {
+                continue
+            }
+            const domain = splitEmail[1];
             const pathDomain = path.join('email', 'separated', `${domain}.txt`);
             await afs.appendFile(pathDomain, `${email}\n`);
         }
