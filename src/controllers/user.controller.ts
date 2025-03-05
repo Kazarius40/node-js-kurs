@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 
 import { users } from "../db/users.db";
 
@@ -11,13 +11,13 @@ import { users } from "../db/users.db";
 
 class UserController {
   public async findAll(
-    req: Request,
+    // req: Request,
     res: Response,
-    next: NextFunction,
+    // next: NextFunction,
   ): Promise<void> {
     try {
-      throw new Error("Error while getting users");
-      // res.json(users);
+      // throw new Error("Error while getting users");
+      res.json(users);
     } catch (err) {
       res.json({
         message: err.message,
