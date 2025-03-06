@@ -60,6 +60,15 @@ app.patch('/users/:id', async (req, res) => {
     res.json(data);
 })
 
+app.delete('/users/:id', async (req, res) => {
+    const id = req.params.id;
+    const isDeleted = await userService.delete(id);
+    if (!isDeleted) {
+        return res.status(404).json({message: `User with id: ${id} not found.`});
+    }
+    res.json({message: `User with id: ${id} deleted successfully.`});
+})
+
 app.listen(5000, () => {
     console.log('server started on port 5000');
 })

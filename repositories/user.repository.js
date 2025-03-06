@@ -37,6 +37,14 @@ class UserRepository {
         await write(users);
         return users[index];
     }
+
+    async delete(id) {
+        const users = await read();
+        const index = users.findIndex(user => Number(user.id) === Number(id));
+        users.splice(index, 1);
+        await write(users);
+        return true;
+    }
 }
 
 const userRepository = new UserRepository();

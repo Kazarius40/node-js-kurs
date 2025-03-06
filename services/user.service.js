@@ -17,6 +17,10 @@ class UserService {
     async update(id, newUserData, overwrite) {
         return await userRepository.update(id, newUserData, overwrite);
     }
+
+    async delete(id) {
+        return await userRepository.delete(id);
+    }
 }
 
 const userService = new UserService();

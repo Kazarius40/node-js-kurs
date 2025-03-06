@@ -1,17 +1,5 @@
 [
   {
-    "id": "1",
-    "name": "Olya",
-    "surname": "Ivanov",
-    "age": "90"
-  },
-  {
-    "id": "2",
-    "name": "Kolya",
-    "surname": "Fedorov",
-    "age": "80"
-  },
-  {
     "id": 3,
     "name": "Boris",
     "surname": "Ivanov",
@@ -28,5 +16,17 @@
     "name": "Masha",
     "surname": "Petrovna",
     "age": "29"
+  },
+  {
+    "id": 1,
+    "name": "Polya",
+    "surname": "Fedorova",
+    "age": "55"
+  },
+  {
+    "id": 2,
+    "name": "Sasha",
+    "surname": "Ohra",
+    "age": "12"
   }
 ]
