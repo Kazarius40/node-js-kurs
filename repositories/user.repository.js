@@ -22,6 +22,7 @@ class UserRepository {
             age: user.age,
         }
         users.push(newUser);
+        users.sort((a, b) => a.id - b.id);
         await write(users);
         return newUser;
     }

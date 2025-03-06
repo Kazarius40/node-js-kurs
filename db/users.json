@@ -1,9 +1,21 @@
 [
   {
+    "id": 1,
+    "name": "Ivan",
+    "surname": "Fedorova",
+    "age": "1"
+  },
+  {
+    "id": 2,
+    "name": "Sasha",
+    "surname": "Ohra",
+    "age": "12"
+  },
+  {
     "id": 3,
-    "name": "Boris",
-    "surname": "Ivanov",
-    "age": "20"
+    "name": "Shura",
+    "surname": "Ohraadfa",
+    "age": "1223"
   },
   {
     "id": "4",
@@ -16,17 +28,5 @@
     "name": "Masha",
     "surname": "Petrovna",
     "age": "29"
-  },
-  {
-    "id": 1,
-    "name": "Polya",
-    "surname": "Fedorova",
-    "age": "55"
-  },
-  {
-    "id": 2,
-    "name": "Sasha",
-    "surname": "Ohra",
-    "age": "12"
   }
 ]
