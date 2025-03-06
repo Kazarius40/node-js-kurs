@@ -15,11 +15,12 @@ class UserRepository {
 
     async create(user) {
         const users = await read();
+        console.log(users);
         const newUser = {
             id: findFirstAvailableId(users),
             name: user.name,
             surname: user.surname,
-            age: user.age,
+            age: Number(user.age),
         }
         users.push(newUser);
         users.sort((a, b) => a.id - b.id);
@@ -30,8 +31,11 @@ class UserRepository {
     async update(id, newUserData, overwrite) {
         const users = await read();
         const index = users.findIndex(user => Number(user.id) === Number(id));
+        if (newUserData.age) {
+            newUserData.age = Number(newUserData.age);
+        }
         if (overwrite) {
-            users[index] = {id, ...newUserData};
+            users[index] = {id: Number(id), ...newUserData};
         } else {
             users[index] = {...users[index], ...newUserData};
         }

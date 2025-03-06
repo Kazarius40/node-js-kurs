@@ -1,32 +1,50 @@
 [
   {
     "id": 1,
-    "name": "Ivan",
-    "surname": "Fedorova",
-    "age": "1"
+    "name": "Shura",
+    "surname": "Olhovna",
+    "age": 14
   },
   {
     "id": 2,
-    "name": "Sasha",
-    "surname": "Ohra",
-    "age": "12"
+    "name": "kh;khj;lkj;",
+    "surname": "Ivanov",
+    "age": 23414
   },
   {
     "id": 3,
     "name": "Shura",
-    "surname": "Ohraadfa",
-    "age": "1223"
+    "surname": "Olhovna",
+    "age": 12
   },
   {
-    "id": "4",
-    "name": "Firas",
-    "surname": "Ayzek",
-    "age": "13"
+    "id": 4,
+    "name": "Shura",
+    "surname": "Olhovna",
+    "age": 15
   },
   {
     "id": 5,
-    "name": "Masha",
+    "name": "Shura",
+    "surname": "Olhovna",
+    "age": 16
+  },
+  {
+    "id": 6,
+    "name": "Olha",
+    "surname": "Olhovna",
+    "age": 12
+  },
+  {
+    "id": 7,
+    "name": "Olha",
+    "surname": "Olhovna",
+    "age": 13
+  },
+  {
+    "id": 8,
+    "name": "Olha",
     "surname": "Petrovna",
-    "age": "29"
+    "age": 12
   }
 ]
