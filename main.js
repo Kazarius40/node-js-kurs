@@ -48,8 +48,15 @@ app.post('/users', async (req, res) => {
 
 app.put('/users/:id', async (req, res) => {
     const id = req.params.id;
-    const user = req.body;
-    const data = await userService.put(id, user);
+    const newUserData = req.body;
+    const data = await userService.update(id, newUserData, true);
+    res.json(data);
+})
+
+app.patch('/users/:id', async (req, res) => {
+    const id = req.params.id;
+    const newUserData = req.body;
+    const data = await userService.update(id, newUserData, false);
     res.json(data);
 })
 

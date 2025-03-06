@@ -14,8 +14,8 @@ class UserService {
         return await userRepository.create(user);
     }
 
-    async put(id, user) {
-        return await userRepository.put(id, user);
+    async update(id, newUserData, overwrite) {
+        return await userRepository.update(id, newUserData, overwrite);
     }
 }
 

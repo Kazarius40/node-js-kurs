@@ -9,7 +9,7 @@ class UserRepository {
 
     async getById(id) {
         const users = await read();
-        const index = users.findIndex(user => user.id === Number(id));
+        const index = users.findIndex(user => Number(user.id) === Number(id));
         return users[index];
     }
 
@@ -26,18 +26,16 @@ class UserRepository {
         return newUser;
     }
 
-    async put(id, user) {
+    async update(id, newUserData, overwrite) {
         const users = await read();
-        const index = users.findIndex(user => user.id === Number(id));
-        const newUser = {
-            id,
-            name: user.name,
-            surname: user.surname,
-            age: user.age,
+        const index = users.findIndex(user => Number(user.id) === Number(id));
+        if (overwrite) {
+            users[index] = {id, ...newUserData};
+        } else {
+            users[index] = {...users[index], ...newUserData};
         }
-        users[index] = newUser;
         await write(users);
-        return newUser;
+        return users[index];
     }
 }
 
