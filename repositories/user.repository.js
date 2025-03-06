@@ -1,4 +1,5 @@
 const {read, write} = require("../services/fs.service");
+const {findFirstAvailableId} = require("../utils/idGenerator");
 
 
 class UserRepository {
@@ -15,12 +16,26 @@ class UserRepository {
     async create(user) {
         const users = await read();
         const newUser = {
-            id: users.length ? users[users.length - 1].id + 1 : 1,
+            id: findFirstAvailableId(users),
             name: user.name,
             surname: user.surname,
             age: user.age,
         }
         users.push(newUser);
+        await write(users);
+        return newUser;
+    }
+
+    async put(id, user) {
+        const users = await read();
+        const index = users.findIndex(user => user.id === Number(id));
+        const newUser = {
+            id,
+            name: user.name,
+            surname: user.surname,
+            age: user.age,
+        }
+        users[index] = newUser;
         await write(users);
         return newUser;
     }

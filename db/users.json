@@ -6,15 +6,27 @@
     "age": "34"
   },
   {
-    "id": 2,
-    "name": "Olha",
-    "surname": "Popova",
-    "age": "30"
+    "id": "2",
+    "name": "Kolya",
+    "surname": "Fedorov",
+    "age": "80"
   },
   {
     "id": 3,
     "name": "Boris",
     "surname": "Ivanov",
     "age": "20"
+  },
+  {
+    "id": 4,
+    "name": "Anya",
+    "surname": "Ivanova",
+    "age": "21"
+  },
+  {
+    "id": 5,
+    "name": "Masha",
+    "surname": "Petrovna",
+    "age": "29"
   }
 ]

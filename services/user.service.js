@@ -13,6 +13,10 @@ class UserService {
     async create(user) {
         return await userRepository.create(user);
     }
+
+    async put(id, user) {
+        return await userRepository.put(id, user);
+    }
 }
 
 const userService = new UserService();
