@@ -15,7 +15,6 @@ class UserRepository {
 
     async create(user) {
         const users = await read();
-        console.log(users);
         const newUser = {
             id: findFirstAvailableId(users),
             name: user.name,
@@ -30,7 +29,7 @@ class UserRepository {
 
     async update(id, newUserData, overwrite) {
         const users = await read();
-        const index = users.findIndex(user => Number(user.id) === Number(id));
+        const index = users.findIndex(user => user.id === Number(id));
         if (newUserData.age) {
             newUserData.age = Number(newUserData.age);
         }

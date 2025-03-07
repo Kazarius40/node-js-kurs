@@ -30,13 +30,17 @@ app.use(express.urlencoded({extended: true}));
 // })
 
 app.get('/users', async (req, res) => {
-    const {name, surname, age} = req.query;
+    const query = req.query;
     let users = await userService.getAll();
-
-    if (name) users = users.filter(user => user.name.toLowerCase() === name.toLowerCase());
-    if (surname) users = users.filter(user => user.surname.toLowerCase() === surname.toLowerCase());
-    if (age) users = users.filter(user => Number(user.age) === Number(age));
-
+    if (query) {
+        for (let key in query) {
+            if (!isNaN(users[0]?.[key])) {
+                users = users.filter(user => user[key] === Number(query[key]));
+            } else {
+                users = users.filter(user => user[key] === query[key]);
+            }
+        }
+    }
     res.json(users);
 })
 
