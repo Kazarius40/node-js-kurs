@@ -1,6 +1,6 @@
 const {read, write} = require("../services/fs.service");
-const {findFirstAvailableId} = require("../utils/idGenerator");
 const {convertNumbers} = require("../utils/convertNumbers");
+const {findFirstAvailableIdWithIndex} = require("../utils/idGenerator");
 
 
 class UserRepository {
@@ -16,12 +16,9 @@ class UserRepository {
 
     async create(user) {
         const users = await read();
-        const newUser = {
-            id: findFirstAvailableId(users),
-           ...convertNumbers(user),
-        }
-        users.push(newUser);
-        users.sort((a, b) => a.id - b.id);
+        const {id, index} = findFirstAvailableIdWithIndex(users);
+        const newUser = {id, ...convertNumbers(user)};
+        users.splice(index, 0, newUser);
         await write(users);
         return newUser;
     }
@@ -34,7 +31,7 @@ class UserRepository {
 
         const convertData = convertNumbers(newUserData);
 
-        if(newUserData.id){
+        if (newUserData.id) {
             delete convertData.id;
         }
 

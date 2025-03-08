@@ -1,16 +1,15 @@
-const findFirstAvailableId = (array) => {
-    if (array.length === 0) return 1;
-
-    const arrayIds = array.map(item => item.id).sort((a, b) => a - b);
+const findFirstAvailableIdWithIndex = (array) => {
+    if (array.length === 0) return {id: 1, index: 0};
     let nextId = 1;
-
-    for (const id of arrayIds) {
-        if (id !== nextId) break;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id !== nextId) {
+            return {id: nextId, index: i};
+        }
         nextId++;
     }
-    return nextId;
+    return {id: nextId, index: array.length};
 }
 
-module.exports= {
-    findFirstAvailableId,
+module.exports = {
+    findFirstAvailableIdWithIndex,
 }
