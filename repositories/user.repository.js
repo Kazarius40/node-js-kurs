@@ -1,5 +1,6 @@
 const {read, write} = require("../services/fs.service");
 const {findFirstAvailableId} = require("../utils/idGenerator");
+const {convertNumbers} = require("../utils/convertNumbers");
 
 
 class UserRepository {
@@ -17,9 +18,7 @@ class UserRepository {
         const users = await read();
         const newUser = {
             id: findFirstAvailableId(users),
-            name: user.name,
-            surname: user.surname,
-            age: Number(user.age),
+           ...convertNumbers(user),
         }
         users.push(newUser);
         users.sort((a, b) => a.id - b.id);
@@ -30,13 +29,15 @@ class UserRepository {
     async update(id, newUserData, overwrite) {
         const users = await read();
         const index = users.findIndex(user => user.id === Number(id));
-        if (newUserData.age) {
-            newUserData.age = Number(newUserData.age);
-        }
+
+        if (index === -1) return null;
+
+        const convertData = convertNumbers(newUserData);
+
         if (overwrite) {
-            users[index] = {id: Number(id), ...newUserData};
+            users[index] = {...convertData, id: Number(id)};
         } else {
-            users[index] = {...users[index], ...newUserData};
+            users[index] = {...users[index], ...convertData, id: Number(id)};
         }
         await write(users);
         return users[index];
@@ -44,7 +45,7 @@ class UserRepository {
 
     async delete(id) {
         const users = await read();
-        const index = users.findIndex(user => Number(user.id) === Number(id));
+        const index = users.findIndex(user => user.id === Number(id));
         users.splice(index, 1);
         await write(users);
         return true;

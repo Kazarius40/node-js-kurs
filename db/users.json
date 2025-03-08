@@ -12,16 +12,16 @@
     "age": 444
   },
   {
-    "id": 3,
-    "name": "Shura",
-    "surname": "Olhovna",
-    "age": 12
+    "name": "Vasya",
+    "surname": "Ivanovich",
+    "age": 25,
+    "id": 3
   },
   {
     "id": 4,
-    "name": "Shura",
-    "surname": "Olhovna",
-    "age": 15
+    "name": "Vurdalak",
+    "surname": "Vurdalakovich",
+    "age": 99
   },
   {
     "id": 5,
@@ -46,5 +46,11 @@
     "name": "Olha",
     "surname": "Petrovna",
     "age": 12
+  },
+  {
+    "id": 9,
+    "name": "Oleksandr",
+    "surname": "Petrovich",
+    "age": 30
   }
 ]

@@ -76,7 +76,7 @@ app.delete('/users/:id', async (req, res) => {
     if (!isDeleted) {
         return res.status(404).json({message: `User with id: ${id} not found.`});
     }
-    res.json({message: `User with id: ${id} deleted successfully.`});
+    res.status(204).end();
 })
 
 app.listen(5000, () => {
