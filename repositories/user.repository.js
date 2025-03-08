@@ -34,10 +34,14 @@ class UserRepository {
 
         const convertData = convertNumbers(newUserData);
 
+        if(newUserData.id){
+            delete convertData.id;
+        }
+
         if (overwrite) {
-            users[index] = {...convertData, id: Number(id)};
+            users[index] = {id: Number(id), ...convertData};
         } else {
-            users[index] = {...users[index], ...convertData, id: Number(id)};
+            users[index] = {id: Number(id), ...users[index], ...convertData};
         }
         await write(users);
         return users[index];
