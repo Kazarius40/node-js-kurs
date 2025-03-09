@@ -47,6 +47,7 @@ class UserController {
     const { id } = req.params;
     users.splice(+id, 1);
 
+
     res.status(200).json({
       message: "users updated successfully!",
       data: users[+id],
