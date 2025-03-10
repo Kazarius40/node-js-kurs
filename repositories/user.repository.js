@@ -17,6 +17,11 @@ class UserRepository {
     async create(user) {
         const users = await read();
         const {id, index} = findFirstAvailableIdWithIndex(users);
+
+        if (user.id) {
+            delete user.id;
+        }
+
         const newUser = {id, ...convertNumbers(user)};
         users.splice(index, 0, newUser);
         await write(users);
@@ -28,7 +33,6 @@ class UserRepository {
         const index = users.findIndex(user => user.id === Number(id));
 
         if (index === -1) return null;
-
         const convertData = convertNumbers(newUserData);
 
         if (newUserData.id) {
